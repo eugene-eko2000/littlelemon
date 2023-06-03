@@ -10,6 +10,7 @@ import SwiftUI
 struct Menu: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var searchText = ""
+    @State var selectedCategory: Categories = .mains
     
     func getMenuData() {
         let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
@@ -26,6 +27,7 @@ struct Menu: View {
                         dish.image = menuItem.image
                         dish.price = menuItem.price
                         dish.descr = menuItem.description
+                        dish.category = menuItem.category
                     }
                     try? viewContext.save()
                 }
@@ -39,36 +41,49 @@ struct Menu: View {
     }
     
     func buildPredicate() -> NSPredicate {
-        if searchText.isEmpty {
-            return NSPredicate(value: true)
+        var subPredicates = [
+            NSPredicate(format: "category == %@", selectedCategory.rawValue),
+        ]
+        if !searchText.isEmpty {
+            subPredicates.append(NSPredicate(format: "title CONTAINS[cd] %@", searchText))
         }
-        return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+        return NSCompoundPredicate(
+            type: .and,
+            subpredicates: subPredicates
+        )
     }
     
     var body: some View {
         VStack {
-            Text("Little lemon")
-            Text("Chicago")
-            Text("We are a family owned Mediterranean restaurant, focused on traditional recipes server with a modern twist.")
-            TextField("Search...", text: $searchText)
+            Hero()
+            HStack {
+                Picker("Category", selection: $selectedCategory) {
+                    ForEach(Categories.allCases, id: \.self) { category in
+                        Text(category.rawValue.capitalized)
+                    }
+                }
+            }
+            .pickerStyle(.segmented)
+            TextField("Search...", text: $searchText).padding(.leading)
             FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) {(dishes: [Dish]) in
                 List {
                     ForEach(dishes) {dish in
                         HStack {
                             Text(dish.title!)
-                            Text(dish.price!)
-                            AsyncImage(url: URL(string: dish.image!)) { phase in
-                                if let image = phase.image {
-                                    image.resizable().scaledToFit()
-                                }
+                                .frame(width: 120, alignment: .leading)
+                            Text("\(dish.price!) $")
+                            Spacer()
+                            AsyncImage(url: URL(string: dish.image!)) { image in
+                                image.resizable().scaledToFit()
+                            } placeholder: {
+                                ProgressView()
                             }
+                            .frame(width: 120, height: 70)
                         }
                     }
                 }
-                .searchable(text: $searchText)
             }
         }
-        .padding()
         .onAppear {
             getMenuData()
         }

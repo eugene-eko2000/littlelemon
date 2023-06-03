@@ -27,27 +27,32 @@ struct Onboarding: View {
     }
     
     var body: some View {
+        Header()
         NavigationView{
             VStack {
                 NavigationLink(isActive: $isLoggedIn, destination: { Home() }) {
                     EmptyView()
                 }
-                TextField("First Name", text: $firstName)
-                    .autocorrectionDisabled(true)
-                TextField("Last Name", text: $lastName)
-                    .autocorrectionDisabled(true)
-                TextField("email", text: $email)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled(true)
-                Button("Register") {
-                    if !firstName.isEmpty && !lastName.isEmpty && isValidEmail() {
-                        UserDefaults.standard.set(firstName, forKey: Onboarding.kFirstName)
-                        UserDefaults.standard.set(lastName, forKey: Onboarding.kLastName)
-                        UserDefaults.standard.set(email, forKey: Onboarding.kEmail)
-                        UserDefaults.standard.set(isLoggedIn, forKey: Onboarding.kIsLoggedIn)
-                        isLoggedIn = true
+                Hero()
+                Form{
+                    TextField("First Name", text: $firstName)
+                        .autocorrectionDisabled(true)
+                    TextField("Last Name", text: $lastName)
+                        .autocorrectionDisabled(true)
+                    TextField("email", text: $email)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled(true)
+                    Button("Register") {
+                        if !firstName.isEmpty && !lastName.isEmpty && isValidEmail() {
+                            UserDefaults.standard.set(firstName, forKey: Onboarding.kFirstName)
+                            UserDefaults.standard.set(lastName, forKey: Onboarding.kLastName)
+                            UserDefaults.standard.set(email, forKey: Onboarding.kEmail)
+                            UserDefaults.standard.set(isLoggedIn, forKey: Onboarding.kIsLoggedIn)
+                            isLoggedIn = true
+                        }
                     }
                 }
+                Spacer()
             }
             .padding()
             .onAppear {
