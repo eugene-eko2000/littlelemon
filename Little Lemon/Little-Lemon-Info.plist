@@ -5,7 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MarkaziText-Regular.ttf</string>
-		<string>Karla-VariableFont_wght.ttf</string>
+		<string>Karla-Regular.ttf</string>
+		<string>Karla-Bold.ttf</string>
 	</array>
 </dict>
 </plist>

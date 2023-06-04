@@ -22,11 +22,10 @@
 		606B75CB2A2A477700DE7ABC /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B75CA2A2A477700DE7ABC /* MenuList.swift */; };
 		606B75CD2A2A478700DE7ABC /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B75CC2A2A478700DE7ABC /* MenuItem.swift */; };
 		606B75D02A2A801D00DE7ABC /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 606B75CE2A2A801D00DE7ABC /* ExampleDatabase.xcdatamodeld */; };
-		606B75D22A2B260A00DE7ABC /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B75D12A2B260A00DE7ABC /* Header.swift */; };
-		606B75D42A2B289400DE7ABC /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B75D32A2B289400DE7ABC /* Hero.swift */; };
 		606B75D62A2B569E00DE7ABC /* MarkaziText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 606B75D52A2B569E00DE7ABC /* MarkaziText-Regular.ttf */; };
-		606B75E32A2B669900DE7ABC /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 606B75E22A2B669900DE7ABC /* Karla-VariableFont_wght.ttf */; };
 		606B75E52A2BF51600DE7ABC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B75E42A2BF51600DE7ABC /* Categories.swift */; };
+		606B75E72A2D12BF00DE7ABC /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 606B75E62A2D12BF00DE7ABC /* Karla-Regular.ttf */; };
+		606B75E92A2D262F00DE7ABC /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 606B75E82A2D262F00DE7ABC /* Karla-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +64,11 @@
 		606B75CA2A2A477700DE7ABC /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		606B75CC2A2A478700DE7ABC /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		606B75CF2A2A801D00DE7ABC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		606B75D12A2B260A00DE7ABC /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		606B75D32A2B289400DE7ABC /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		606B75D52A2B569E00DE7ABC /* MarkaziText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MarkaziText-Regular.ttf"; path = "../../../../../../Downloads/Markazi_Text/MarkaziText-Regular.ttf"; sourceTree = "<group>"; };
 		606B75E12A2B658B00DE7ABC /* Little-Lemon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Little-Lemon-Info.plist"; sourceTree = SOURCE_ROOT; };
-		606B75E22A2B669900DE7ABC /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		606B75E42A2BF51600DE7ABC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		606B75E62A2D12BF00DE7ABC /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		606B75E82A2D262F00DE7ABC /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +122,6 @@
 				606B75E12A2B658B00DE7ABC /* Little-Lemon-Info.plist */,
 				606B75E42A2BF51600DE7ABC /* Categories.swift */,
 				606B75C82A2A451400DE7ABC /* FetchedObjects.swift */,
-				606B75D12A2B260A00DE7ABC /* Header.swift */,
-				606B75D32A2B289400DE7ABC /* Hero.swift */,
 				606B75C22A2A150C00DE7ABC /* Home.swift */,
 				606B758F2A28F75800DE7ABC /* Little_LemonApp.swift */,
 				606B75C42A2A168D00DE7ABC /* Menu.swift */,
@@ -134,7 +130,8 @@
 				606B75C02A2A0BA700DE7ABC /* Onboarding.swift */,
 				606B75982A28F75900DE7ABC /* Persistence.swift */,
 				606B75C62A2A217900DE7ABC /* UserProfile.swift */,
-				606B75E22A2B669900DE7ABC /* Karla-VariableFont_wght.ttf */,
+				606B75E82A2D262F00DE7ABC /* Karla-Bold.ttf */,
+				606B75E62A2D12BF00DE7ABC /* Karla-Regular.ttf */,
 				606B75D52A2B569E00DE7ABC /* MarkaziText-Regular.ttf */,
 				606B75CE2A2A801D00DE7ABC /* ExampleDatabase.xcdatamodeld */,
 				606B75932A28F75900DE7ABC /* Assets.xcassets */,
@@ -273,7 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				606B75972A28F75900DE7ABC /* Preview Assets.xcassets in Resources */,
-				606B75E32A2B669900DE7ABC /* Karla-VariableFont_wght.ttf in Resources */,
+				606B75E92A2D262F00DE7ABC /* Karla-Bold.ttf in Resources */,
+				606B75E72A2D12BF00DE7ABC /* Karla-Regular.ttf in Resources */,
 				606B75D62A2B569E00DE7ABC /* MarkaziText-Regular.ttf in Resources */,
 				606B75942A28F75900DE7ABC /* Assets.xcassets in Resources */,
 			);
@@ -305,13 +303,11 @@
 				606B75C72A2A217900DE7ABC /* UserProfile.swift in Sources */,
 				606B75C92A2A451400DE7ABC /* FetchedObjects.swift in Sources */,
 				606B75C32A2A150C00DE7ABC /* Home.swift in Sources */,
-				606B75D22A2B260A00DE7ABC /* Header.swift in Sources */,
 				606B75C12A2A0BA700DE7ABC /* Onboarding.swift in Sources */,
 				606B75CB2A2A477700DE7ABC /* MenuList.swift in Sources */,
 				606B75902A28F75800DE7ABC /* Little_LemonApp.swift in Sources */,
 				606B75D02A2A801D00DE7ABC /* ExampleDatabase.xcdatamodeld in Sources */,
 				606B75CD2A2A478700DE7ABC /* MenuItem.swift in Sources */,
-				606B75D42A2B289400DE7ABC /* Hero.swift in Sources */,
 				606B75E52A2BF51600DE7ABC /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
