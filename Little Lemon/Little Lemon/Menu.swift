@@ -55,30 +55,88 @@ struct Menu: View {
     
     var body: some View {
         VStack {
-            Hero()
-            HStack {
-                Picker("Category", selection: $selectedCategory) {
-                    ForEach(Categories.allCases, id: \.self) { category in
-                        Text(category.rawValue.capitalized)
-                    }
+            VStack {
+                HStack {
+                    Spacer()
+                        .frame(width: 15)
+                    Text("Little lemon")
+                        .foregroundColor(Color("Yellow"))
+                        .font(Font.custom("MarkaziText-Regular", size: 64))
+                        .fontWeight(.medium)
+                    Spacer()
                 }
+                .frame(height: 60)
+                HStack {
+                    Spacer()
+                        .frame(width: 15)
+                    Text("Chicago")
+                        .foregroundColor(Color("TextForeground"))
+                        .font(Font.custom("MarkaziText-Regular", size: 40))
+                    Spacer()
+                }
+                .frame(height: 40)
+                HStack {
+                    Spacer().frame(width: 15)
+                    Text("We are a family owned Mediterranean restaurant, focused on traditional recipes server with a modern twist.")
+                        .foregroundColor(Color("TextForeground"))
+                        .font(Font.custom("Karla-Regular", size: 18))
+                        .fontWeight(.regular)
+                    Spacer()
+                    Image("Hero image")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 130, height: 130)
+                        .cornerRadius(16)
+                    Spacer().frame(width: 15)
+                }
+                .frame(height: 110)
+                HStack {
+                    Spacer()
+                        .frame(width: 15)
+                    TextField("Search...", text: $searchText)
+                        .textFieldStyle(.roundedBorder)
+                    Spacer()
+                        .frame(width: 15)
+                }
+                .frame(height: 70)
             }
-            .pickerStyle(.segmented)
-            TextField("Search...", text: $searchText).padding(.leading)
-            FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) {(dishes: [Dish]) in
-                List {
-                    ForEach(dishes) {dish in
-                        HStack {
-                            Text(dish.title!)
-                                .frame(width: 120, alignment: .leading)
-                            Text("\(dish.price!) $")
-                            Spacer()
-                            AsyncImage(url: URL(string: dish.image!)) { image in
-                                image.resizable().scaledToFit()
-                            } placeholder: {
-                                ProgressView()
+            .background(Color("Green"))
+            VStack {
+                HStack {
+                    Spacer()
+                        .frame(width: 15)
+                    Text("ORDER FOR DELIVERY!")
+                        .font(Font.custom("Karla-Bold", size: 18))
+                        .bold()
+                }
+                HStack {
+                    Spacer()
+                        .frame(width: 15)
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(Categories.allCases, id: \.self) { category in
+                            Text(category.rawValue.capitalized)
+                        }
+                    }
+                    Spacer()
+                        .frame(width: 15)
+                }
+                .pickerStyle(.segmented)
+                .foregroundColor(Color("Green"))
+                FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) {(dishes: [Dish]) in
+                    List {
+                        ForEach(dishes) {dish in
+                            HStack {
+                                Text(dish.title!)
+                                    .frame(width: 120, alignment: .leading)
+                                Text("\(dish.price!) $")
+                                Spacer()
+                                AsyncImage(url: URL(string: dish.image!)) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: 120, height: 70)
                             }
-                            .frame(width: 120, height: 70)
                         }
                     }
                 }

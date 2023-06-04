@@ -27,31 +27,41 @@ struct Onboarding: View {
     }
     
     var body: some View {
-        Header()
-        NavigationView{
+        NavigationView {
             VStack {
                 NavigationLink(isActive: $isLoggedIn, destination: { Home() }) {
                     EmptyView()
                 }
-                Hero()
-                Form{
+                Image("Logo")
+                .frame(height: 50)
+                VStack(alignment: .leading){
+                    Text("Registration")
+                        .font(Font.custom("Karla-Bold", size: 24))
                     TextField("First Name", text: $firstName)
                         .autocorrectionDisabled(true)
+                        .textFieldStyle(.roundedBorder)
                     TextField("Last Name", text: $lastName)
                         .autocorrectionDisabled(true)
+                        .textFieldStyle(.roundedBorder)
                     TextField("email", text: $email)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled(true)
-                    Button("Register") {
-                        if !firstName.isEmpty && !lastName.isEmpty && isValidEmail() {
-                            UserDefaults.standard.set(firstName, forKey: Onboarding.kFirstName)
-                            UserDefaults.standard.set(lastName, forKey: Onboarding.kLastName)
-                            UserDefaults.standard.set(email, forKey: Onboarding.kEmail)
-                            UserDefaults.standard.set(isLoggedIn, forKey: Onboarding.kIsLoggedIn)
-                            isLoggedIn = true
-                        }
+                        .textFieldStyle(.roundedBorder)
+                }
+                Button("Register") {
+                    if !firstName.isEmpty && !lastName.isEmpty && isValidEmail() {
+                        UserDefaults.standard.set(firstName, forKey: Onboarding.kFirstName)
+                        UserDefaults.standard.set(lastName, forKey: Onboarding.kLastName)
+                        UserDefaults.standard.set(email, forKey: Onboarding.kEmail)
+                        isLoggedIn = true
+                        UserDefaults.standard.set(isLoggedIn, forKey: Onboarding.kIsLoggedIn)
                     }
                 }
+                .padding(.init(top: 10, leading: 30, bottom: 10, trailing: 30))
+                .foregroundColor(.black)
+                .background(Color("Yellow"))
+                .cornerRadius(20)
+                .padding(.top, 10)
                 Spacer()
             }
             .padding()
